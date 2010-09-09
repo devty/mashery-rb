@@ -6,7 +6,7 @@ require 'md5'
 module Mashery
   class Client
     TEST_HOST = 'api.sandbox.mashery.com'
-    PRODUCTION_HOST= 'api.mashery.com'
+    PRODUCTION_HOST = 'api.mashery.com'
 
     def initialize(site_id, key, secret)
       host = Mashery.test_mode ? TEST_HOST : PRODUCTION_HOST
@@ -21,7 +21,9 @@ module Mashery
 
     def call_remote(method, *params)
       # all calls are synchronous, so id in request and response will always be 1
-      Mashery.logger.debug("Calling method #{method} with params #{params.inspect}") if Mashery.logger
+      if Mashery.logger
+        Mashery.logger.debug("Calling method #{method} with params #{params.inspect} on URI #{signed_uri}")
+      end
       req = ::JSON[{:version => '1.1', :method => method, :params => params, :id => 1}]
       response = HTTParty.post(signed_uri, :body => req)
       res = ::JSON[response.body]

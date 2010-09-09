@@ -24,8 +24,9 @@ module Mashery
         raise Exception, "Please set the MASHERY_API_KEY environment variable."
       secret = ENV['MASHERY_SHARED_SECRET'] or
         raise Exception, "Please set the MASHERY_SHARED_SECRET environment variable."
-      ::Mashery.client = ::Mashery::Client.new(site_id, key, secret)
+      ::Mashery.test_mode = ENV['MASHERY_PRODUCTION_MODE'].blank?
       ::Mashery.logger.level = Logger::DEBUG
+      ::Mashery.client = ::Mashery::Client.new(site_id, key, secret)
       begin
         yield
       rescue ::Mashery::JsonRpcException => e

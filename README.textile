@@ -26,6 +26,11 @@ bc. $ export MASHERY_SITE_ID=666
 $ export MASHERY_API_KEY=cafebebedeadbeefcafebebedeadbeef
 $ export MASHERY_SHARED_SECRET=blahblahblah
 
+By default, the thor tasks call methods in the Mashery sandbox. If you want them to access the production environment
+instead, set the {{MASHERY_PRODUCTION_MODE}} environment variable to any value:
+
+bc. $ export MASHERY_PRODUCTION_MODE=hi
+
 h3. Querying objects
 
 The Mashery API supports querying the following types of objects: "members":http://support.mashery.com/docs/mashery_api/member/, "applications":http://support.mashery.com/docs/mashery_api/application/, "keys":http://support.mashery.com/docs/mashery_api/key/, "services":http://support.mashery.com/docs/mashery_api/service/, and "roles":http://support.mashery.com/docs/mashery_api/role/.
