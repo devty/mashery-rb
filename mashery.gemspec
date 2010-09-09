@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mashery}
-  s.version = "0.0.11"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Brian Moseley"]
-  s.date = %q{2010-08-26}
+  s.date = %q{2010-09-09}
   s.email = %q{brian@outside.in}
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".gitignore",
      "Gemfile",
+     "Gemfile.lock",
      "LICENSE.txt",
      "README.textile",
      "Rakefile",
