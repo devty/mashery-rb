@@ -29,6 +29,8 @@ module Mashery
       ::Mashery.client = ::Mashery::Client.new(site_id, key, secret)
       begin
         yield
+      rescue ::Mashery::HttpException => e
+        error("HTTP error: #{e.message}")
       rescue ::Mashery::JsonRpcException => e
         error(e.message)
       rescue ::Mashery::ValidationException => e

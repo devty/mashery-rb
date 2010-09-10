@@ -26,6 +26,7 @@ module Mashery
       end
       req = ::JSON[{:version => '1.1', :method => method, :params => params, :id => 1}]
       response = HTTParty.post(signed_uri, :body => req)
+      raise HttpException.new(response.headers['x-mashery-error-code']) unless response.code < 300
       res = ::JSON[response.body]
       raise Exception.create(res['error']) if res.include?('error')
       res['result']

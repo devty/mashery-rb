@@ -9,6 +9,9 @@ module Mashery
     end
   end
 
+  class HttpException < Exception
+  end
+
   class JsonRpcException < Exception
   end
 
