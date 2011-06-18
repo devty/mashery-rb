@@ -1,7 +1,7 @@
 require 'active_support'
 require 'json'
 require 'httparty'
-require 'md5'
+require 'digest/md5'
 
 module Mashery
   class Client
