@@ -1,11 +1,7 @@
 require 'active_support'
 require 'json'
 require 'httparty'
-if RUBY_VERSION =~ /1\.9\.2/
-   require 'digest/md5'
-else
-    require 'md5'
-end
+require 'digest/md5'
 
 module Mashery
   class Client
