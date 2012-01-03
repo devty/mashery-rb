@@ -1,7 +1,7 @@
 require 'active_support'
 require 'json'
 require 'httparty'
-if RUBY_VERSION =~ /1\.9\.2/
+if RUBY_VERSION =~ /1\.9\.2/ or RUBY_VERSION =~ /1\.9\.3/
    require 'digest/md5'
 else
     require 'md5'
