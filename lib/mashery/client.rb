@@ -34,7 +34,7 @@ module Mashery
 
   protected
     def signed_uri
-      "#{@uri}?apikey=#{@key}&sig=#{MD5.new(@key + @secret + Time.now.to_i.to_s).hexdigest}"
+      "#{@uri}?apikey=#{@key}&sig=#{Digest::MD5.new(@key + @secret + Time.now.to_i.to_s).hexdigest}"
     end
   end
 end
